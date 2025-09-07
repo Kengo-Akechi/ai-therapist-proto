@@ -2,13 +2,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from model.chatbot import get_bot_response
+from flask import render_template
 
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/')
 def home():
-    return "Flask is running. Chat endpoint is at /chat"
+    return render_template("index.html")
 
 @app.route('/chat', methods=['POST'])
 def chat():
